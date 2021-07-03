@@ -1,0 +1,65 @@
+#include<iostream>
+using namespace std;
+class shape{
+public:
+shape();
+~shape();
+void draw();
+};
+class twoDimensionalShape: public shape{
+public:
+twoDimensionalShape();
+~twoDimensionalShape();
+void draw();
+double getArea();
+};
+class triangle: public twoDimensionalShape{
+public:
+triangle();
+~triangle();
+void draw();
+double getArea();
+};
+using namespace std;
+shape::shape(){
+cout<<"shape::constructor()"<<endl;
+}
+shape::~shape(){
+cout<<"shape::destructor()"<<endl;
+}
+void shape::draw(){
+cout<<"shape::draw()"<<endl;
+}
+twoDimensionalShape::twoDimensionalShape(){
+cout<<"twoDimensionalShape::constructor()"<<endl;
+}
+twoDimensionalShape::~twoDimensionalShape(){
+cout<<"twoDimensionalShape::destructor()"<<endl;
+}
+void twoDimensionalShape::draw(){
+cout<<"twoDimensionalShape::draw()"<<endl;
+}
+double twoDimensionalShape::getArea(){
+cout<<"twoDimensionalShape::getArea()"<<endl;
+return 538;
+}
+triangle::triangle(){
+cout<<"triangle::constructor()"<<endl;
+}
+triangle::~triangle(){
+cout<<"triangle::destructor()"<<endl;
+}
+void triangle::draw(){
+shape::draw();
+twoDimensionalShape::draw();
+cout<<"triangle::draw()"<<endl;
+}
+double triangle::getArea(){
+cout<<"triangle::getArea()"<<endl;}
+int main(){
+triangle obj;
+obj.draw();
+cout<<"Area of obj = "<<obj.getArea()<<endl;
+return 0;
+}
+
